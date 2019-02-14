@@ -55,6 +55,8 @@ void setup() {
 //noip
   EasyDDNS.service("noip"); //"duckdns" / "noip" / "dyndns" / "dynu".
   EasyDDNS.client("seudominio.ddns.net","seu_usuario","sua_senha");
+  //atualiza IP
+  EasyDDNS.update(120000); //2m (60000*2)
 }
 
 void loop() {
@@ -88,10 +90,7 @@ void loop() {
   client.println(" ");
   delay(1);
   Serial.println("Client disonnected");
-  Serial.println("");   
-
-  //atualiza IP
-  EasyDDNS.update(120000); //2m (60000*2)
+  Serial.println(""); 
 }
 
 void send (int msg) {
